@@ -41,7 +41,22 @@ def webhook_whatsapp():
       f.write(mensaje)
       f.close()
       #RETORNAMOS EL STATUS EN UN JSON
+      enviar(telefonoCliente,respuesta)
       return jsonify({"status": "success"}, 200)
+
+
+def enviar(telefonoRecibe,respuesta):
+  from heyoo import WhatsApp
+  #TOKEN DE ACCESO DE FACEBOOK
+  token='EAAG5Yc1IB1oBAHywXDAzRgZAeWcGCcmeSmcZA4KaQuL7Qx1VaEDFWZCUnHrZCZBHdI9TiKp9ileS9KbZAP4pyYx2OYzmAOw8JgFsqiLsDsNwkSZCYuXPfRMI9r0oa2RUprV42NZCB1ZABs6Fe8Urmm0H95cZAuxrnEgjs1LfoNz5BmtdAeuadGnjOecy2ZBJz6ZBH1PJU99RVer2xgZDZD'
+  #IDENTIFICADOR DE NÚMERO DE TELÉFONO
+  idNumeroTeléfono='101723519584262'
+  #INICIALIZAMOS ENVIO DE MENSAJES
+  mensajeWa=WhatsApp(token,idNumeroTeléfono)
+  telefonoRecibe=telefonoRecibe.replace("521","52")
+  #ENVIAMOS UN MENSAJE DE TEXTO
+  mensajeWa.send_message(respuesta,telefonoRecibe)
+
 #INICIAMSO FLASK
 if __name__ == "__main__":
 
