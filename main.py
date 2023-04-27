@@ -27,6 +27,16 @@ def webhook_whatsapp():
     #ESCRIBIMOS EL NUMERO DE TELEFONO Y EL MENSAJE EN EL ARCHIVO TEXTO
     #SI HAY UN MENSAJE
     if mensaje is not None:
+      from rivescript import RiveScript
+      bot = RiveScript()
+      bot.load_file('example.rive')
+      bot.sort_replies()
+      #obtenemos respuesta
+      respuesta= bot.reply("localuser",mensaje)
+      respuesta=respuesta.replace("\\n","\\\n")
+      respuesta=respuesta.replace("\\","")
+      
+      #
       f = open("texto.txt", "w")
       f.write(mensaje)
       f.close()
@@ -35,6 +45,6 @@ def webhook_whatsapp():
 #INICIAMSO FLASK
 if __name__ == "__main__":
 
-    
+
   app.run(debug=True, port=os.getenv("PORT", default=5000))
 

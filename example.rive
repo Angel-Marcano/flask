@@ -1,0 +1,116 @@
+//Colocar la inteligencia artificial de un restaurante a nuestro chat
+//CUANDO EL HUMANO SALUDE CON UN HOLA SE EJECUTA ESTE GATILLO
++ hola
+- Hola, Soy un robot, esta es la informacion que te puedo ofrecer\n
+^ Nuestros telefonos\n
+^ Nuestra direccion\n
+^ Entregas\n
+^ Pagina web\n
+^ Horarios\n
+^ Servicios\n
+
+
+
+//SI EL HUMANO ESCRIBE ALGO QUE DIGA LUNES (O MARTES O MIÉRCOLES ETC..) SE LLAMA LA VARIABLE DEL LUNES (O MARTES O MIÉRCOLES)
++ [*] lunes{weight=2} [*]
+- <bot lunes>
+
++ [*] martes{weight=2} [*]
+- <bot martes>
+
++ [*] miercoles{weight=2} [*]
+- <bot miercoles>
+
++ [*] jueves{weight=2} [*]
+- <bot jueves>
+
++ [*] viernes{weight=2} [*]
+- <bot viernes>
+
++ [*] sabado{weight=2} [*]
+- <bot sabado>
+
++ [*] domingo{weight=2} [*]
+- <bot domingo>
+
+//SI EL HUMANO ESCRIBE MENU O CARTA LLAMAMOS TODAS LAS VARIABLES DEL LUNES AL DOMINGO
++ [*] (menu|carta) [*]
+- <bot lunes> \n <bot martes> \n <bot miercoles> \n <bot jueves> \n <bot viernes> \n <bot sabado> \n <bot domingo>
+
+
+//CREAMOS LA VARIABLE HORARIO QUE ALMACENA LOS HORARIOS DE LUNES A DOMINGO
+! var horario = -
+^ Lunes abrimos de 08:00 a 18:00\n
+^ Martes abrimos de 08:00 a 18:00\n
+^ Miercoles abrimos de 08:00 a 18:00\n
+^ Jueves abrimos de 08:00 a 18:00\n
+^ Viernes abrimos de 08:00 a 18:00\n
+^ Sabados abrimos de 08:00 a 12:00\n
+^ Domingos Cerrado\n
+
+//CREAMOS LAS VARIABLES QUE ALMACENARAN EL MENU DE LUNES A DOMINGO
+! var lunes = -
+^ Menu del Lunes \n 
+^ Chiles en nogada 20.50 \n
+^ Chilaquiles 15.50 \n
+
+! var martes = -
+^ Menu del Martes \n
+^ Pambasos 20.50 \n
+^ Huitlacoche 15.50 \n
+
+! var miercoles = -
+^ Menu del Miercoles \n
+^ Enchiladas 120.50 \n
+^ Caldo de olla 15.50 \n
+
+! var jueves = -
+^ Menu del Jueves \n
+^ Tacos 120.50 \n
+^ Quesadillas 15.50 \n
+
+! var viernes = -
+^ Menu del Viernes \n
+^ Tortas 20.50 \n
+^ Tacos 15.50 \n
+
+! var sabado = -
+^ Menu del Sabado \n
+^ Enchiladas 120.50 \n
+^ Huitlacoche 15.50 \n
+
+! var domingo = -
+^ Los domingo esta cerrado
+
+
+//SI EL HUMANO ESCIBRE ALGUNO DE ESTOS GATILLO LLAMAMOS AL GATILLO "hola"
++ como estas
+@ hola
+
++ hay alguien*
+@ hola
+
+/*SI EL HUMANO ESCRIBE O "telefono" O "celular" O "cel" MOSTRAMOS EL NUMERO DE TELÉFONO */
++ [*] (telefono|celular|cel) [*]
+- Nuestro telefono es 725648221
+
+//SI EL HUMANO ESCRIBE O "direccion" O "ubicacion" O "lugar" MOSTRAMOS LA UBICACION
++ [*] (direccion|ubicacion|lugar) [*]
+- Nuestra direccion Colonia Emiliano Zapata Acapulco Gro
+- Nos encontramos ubicados en la Colonia Emiliano Zapata Acapulco Gro
+
+//SI EL HUMANO ESCRIBE O "entregas" O "a domicilio" MOSTRAMOS EL HORARIO DE ENTREGA
++ [*] (entregas|a domicilio) [*]
+- Realizamos entregas a domicilio solo de lunes a viernes de 12:00 a 15:00
+
+//SI EL HUMANO ESCRIBE O "pagina web" O "web" O "pagina" MOSTRAMOS NUESTRA PAGINA WEB
++ [*] (pagina web|web|pagina) [*]
+- Visitanos en https://www.programadornovato.com
+
+//SI EL HUMANO ESCRIBE O "hora" O "horarios" O "dias" O "abierto" MOSTRAMOS LO QUE ESTA EN LA VARIABLE HORARIO
++ [*] (hora|horarios|dias|abierto){weight=3} [*]
+- <bot horario>
+
++ *
+- Recuerda que soy un robot, me podrías preguntar de otra forma
+- Intenta hacer tu pregunta de otra manera.
