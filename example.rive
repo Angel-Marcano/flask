@@ -8,6 +8,7 @@
 ^ Pagina web\n
 ^ Horarios\n
 ^ Servicios\n
+^ Menus de la semana\n
 
 
 
@@ -90,25 +91,41 @@
 + hay alguien*
 @ hola
 
+//  extras 
++ [*] (tiempo de entrega | tardan | demoran | demora) [*]
+- Nuestra entrega suele tardar un promedio de 30 min.
+- Nuestra entrega suele demorar maximo 40 min !!!
+
++ [*] (ok gracias | chao | hasta luego | nos vemos) [*]
+- Estamos para servirle, que tenga buen dia.
+- ok, que tenga buen dia.
+
++ [*] (esta caro | me parece caro | son frescos ) [*]
+- Nuestros ingredientes son de primera y son 100% frescos.
+- No encontrara mejor calidad de ingredientes en el mercado.
+
+//
 /*SI EL HUMANO ESCRIBE O "telefono" O "celular" O "cel" MOSTRAMOS EL NUMERO DE TELÉFONO */
-+ [*] (telefono|celular|cel) [*]
++ [*] (telefono|celular|cel|tlf|phone|numero de contacto|numero de atencion) [*]
 - Nuestro telefono es 725648221
 
 //SI EL HUMANO ESCRIBE O "direccion" O "ubicacion" O "lugar" MOSTRAMOS LA UBICACION
-+ [*] (direccion|ubicacion|lugar) [*]
++ [*] (direccion|ubicacion|lugar|ubicados|ubican|localizan) [*]
 - Nuestra direccion Colonia Emiliano Zapata Acapulco Gro
 - Nos encontramos ubicados en la Colonia Emiliano Zapata Acapulco Gro
 
 //SI EL HUMANO ESCRIBE O "entregas" O "a domicilio" MOSTRAMOS EL HORARIO DE ENTREGA
-+ [*] (entregas|a domicilio) [*]
++ [*] (entregas|a domicilio |servicio de reparto |entrega a la puerta|entrega en casa|traer a mi casa) [*]
 - Realizamos entregas a domicilio solo de lunes a viernes de 12:00 a 15:00
+- Las entregas a domicilio se realizan solo de lunes a viernes de 12:00 a 15:00
 
 //SI EL HUMANO ESCRIBE O "pagina web" O "web" O "pagina" MOSTRAMOS NUESTRA PAGINA WEB
 + [*] (pagina web|web|pagina) [*]
-- Visitanos en https://www.programadornovato.com
+- Visitanos en https://www.comidaya.com
+- Nuestra web es https://www.comidaya.com
 
 //SI EL HUMANO ESCRIBE O "hora" O "horarios" O "dias" O "abierto" MOSTRAMOS LO QUE ESTA EN LA VARIABLE HORARIO
-+ [*] (hora|horarios|dias|abierto){weight=3} [*]
++ [*] (hora|horarios|horario|hora de cierre|hora de apretura|tiempo completo|dias|abierto){weight=3} [*]
 - <bot horario>
 
 + *
