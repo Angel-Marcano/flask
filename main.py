@@ -36,7 +36,7 @@ def webhook_whatsapp():
       respuesta=respuesta.replace("\\n","\\\n")
       respuesta=respuesta.replace("\\","")
       
-      #
+      #dss
       f = open("texto.txt", "w")
       f.write(mensaje)
       f.close()
